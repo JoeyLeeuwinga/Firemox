@@ -1,0 +1,5 @@
+projectKey=Firemox
+serverUrl=http://localhost:9000
+dashboardUrl=http://localhost:9000/dashboard/index/Firemox
+ceTaskId=AVyST2_vF3_AD2s7hacU
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AVyST2_vF3_AD2s7hacU

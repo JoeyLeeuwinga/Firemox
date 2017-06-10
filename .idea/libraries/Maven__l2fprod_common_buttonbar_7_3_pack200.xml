@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: l2fprod:common-buttonbar:7.3.pack200">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/l2fprod/common-buttonbar/7.3.pack200/common-buttonbar-7.3.pack200.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/l2fprod/common-buttonbar/7.3.pack200/common-buttonbar-7.3.pack200-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/l2fprod/common-buttonbar/7.3.pack200/common-buttonbar-7.3.pack200-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

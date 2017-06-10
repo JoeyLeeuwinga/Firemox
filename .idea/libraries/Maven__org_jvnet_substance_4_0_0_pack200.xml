@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.jvnet:substance:4.0.0.pack200">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jvnet/substance/4.0.0.pack200/substance-4.0.0.pack200.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jvnet/substance/4.0.0.pack200/substance-4.0.0.pack200-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jvnet/substance/4.0.0.pack200/substance-4.0.0.pack200-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
