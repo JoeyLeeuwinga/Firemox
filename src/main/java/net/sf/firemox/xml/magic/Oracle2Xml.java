@@ -188,7 +188,7 @@ public final class Oracle2Xml {
 							// patching card
 						}
 					}
-					skipCard(in);
+					SkipCard.skipCard(in);
 					continue;
 				}
 
@@ -290,7 +290,7 @@ public final class Oracle2Xml {
 					if (line.indexOf("/") == -1) {
 						System.err.println("Error reading card '" + cardName
 								+ "' : power/toughness, line=" + line);
-						skipCard(in);
+						SkipCard.skipCard(in);
 						continue;
 					}
 					power = line.substring(0, line.indexOf('/')).trim();
@@ -2757,15 +2757,15 @@ public final class Oracle2Xml {
 		}
 	}
 
-	/**
-	 * @param in
-	 */
-	private void skipCard(BufferedReader in) throws IOException {
-		String line = in.readLine();
-		while (line != null && line.length() > 0 && line.compareTo(" \t ") != 0) {
-			line = in.readLine();
-		}
-	}
+//	/**
+//	 * @param in
+//	 */
+//	private void skipCard(BufferedReader in) throws IOException {
+//		String line = in.readLine();
+//		while (line != null && line.length() > 0 && line.compareTo(" \t ") != 0) {
+//			line = in.readLine();
+//		}
+//	}
 
 	/**
 	 * Write the affinity XML code for a given idCard

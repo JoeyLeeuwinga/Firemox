@@ -134,7 +134,8 @@ public final class Oracle2XmlNoRules {
 							// patching card
 						}
 					}
-					skipCard(in);
+
+					SkipCard.skipCard(in);
 					continue;
 				}
 
@@ -244,13 +245,13 @@ public final class Oracle2XmlNoRules {
 				.getFile(destination), MToolKit.getFile("tbs/norules-mtg/recycled/"));
 	}
 
-	/**
-	 * @param in
-	 */
-	private void skipCard(BufferedReader in) throws IOException {
-		String line = in.readLine();
-		while (line != null && line.length() > 0) {
-			line = in.readLine();
-		}
-	}
+//	/**
+//	 * @param in
+//	 */
+//	private void skipCard(BufferedReader in) throws IOException {
+//		String line = in.readLine();
+//		while (line != null && line.length() > 0) {
+//			line = in.readLine();
+//		}
+//	}
 }
