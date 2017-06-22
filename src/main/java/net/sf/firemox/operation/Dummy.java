@@ -23,16 +23,7 @@ package net.sf.firemox.operation;
 import java.io.IOException;
 import java.io.InputStream;
 
-import net.sf.firemox.expression.BaseRegisterIntValue;
-import net.sf.firemox.expression.BitCount;
-import net.sf.firemox.expression.CardColors;
-import net.sf.firemox.expression.CardProperties;
-import net.sf.firemox.expression.CardTypes;
-import net.sf.firemox.expression.Expression;
-import net.sf.firemox.expression.HighestAmong;
-import net.sf.firemox.expression.IfThenElse;
-import net.sf.firemox.expression.LowestAmong;
-import net.sf.firemox.expression.Position;
+import net.sf.firemox.expression.*;
 
 /**
  * No standard expression is associated to this operation. Special expression
@@ -89,9 +80,9 @@ public final class Dummy extends Operation {
 		case IF_THEN_ELSE:
 			return new IfThenElse(input);
 		case HIGHEST_AMONG:
-			return new HighestAmong(input);
+			return new Among(input);
 		case LOWEST_AMONG:
-			return new LowestAmong(input);
+			return new Among(input);
 		case POSITION:
 			return new Position(input);
 		case BIT_COUNT:

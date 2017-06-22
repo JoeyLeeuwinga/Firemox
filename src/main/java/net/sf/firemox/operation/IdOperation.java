@@ -405,12 +405,12 @@ public enum IdOperation {
 	CARD_COLORS("card-colors"),
 
 	/**
-	 * @see net.sf.firemox.expression.HighestAmong
+	 * @see net.sf.firemox.expression.Among
 	 */
 	HIGHEST_AMONG("highest-among"),
 
 	/**
-	 * @see net.sf.firemox.expression.LowestAmong
+	 * @see net.sf.firemox.expression.Among
 	 */
 	LOWEST_AMONG("lowest-among"),
 
