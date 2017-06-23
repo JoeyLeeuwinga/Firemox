@@ -1,5 +1,5 @@
 projectKey=Firemox
 serverUrl=http://localhost:9000
 dashboardUrl=http://localhost:9000/dashboard/index/Firemox
-ceTaskId=AVzUnt_33wigbff9sTVS
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AVzUnt_33wigbff9sTVS
+ceTaskId=AVzVIs2h3wigbff9sTVU
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AVzVIs2h3wigbff9sTVU

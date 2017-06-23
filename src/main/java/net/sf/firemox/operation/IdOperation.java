@@ -407,12 +407,7 @@ public enum IdOperation {
 	/**
 	 * @see net.sf.firemox.expression.Among
 	 */
-	HIGHEST_AMONG("highest-among"),
-
-	/**
-	 * @see net.sf.firemox.expression.Among
-	 */
-	LOWEST_AMONG("lowest-among"),
+	AMONG("among"),
 
 	/**
 	 * @see net.sf.firemox.expression.StringMethod

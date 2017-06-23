@@ -79,9 +79,7 @@ public final class Dummy extends Operation {
 		switch (idExpression) {
 		case IF_THEN_ELSE:
 			return new IfThenElse(input);
-		case HIGHEST_AMONG:
-			return new Among(input);
-		case LOWEST_AMONG:
+		case AMONG:
 			return new Among(input);
 		case POSITION:
 			return new Position(input);
