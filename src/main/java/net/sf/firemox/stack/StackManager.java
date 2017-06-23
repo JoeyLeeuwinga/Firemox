@@ -1412,7 +1412,7 @@ public final class StackManager implements StackContext {
 			for (ActionContextWrapper contextI : context) {
 				if (contextI != null && contextI.actionContext != null
 						&& contextI.actionContext instanceof ManaCost) {
-					final int[] manaCost = ((ManaCost) contextI.actionContext).manaCost;
+					final int[] manaCost = ((ManaCost) contextI.actionContext).manaCostInts;
 					for (int j = IdCommonToken.PAYABLE_COLOR_NAMES.length; j-- > 0;) {
 						res[j] += manaCost[j];
 					}
@@ -1439,7 +1439,7 @@ public final class StackManager implements StackContext {
 		for (ActionContextWrapper contextI : context) {
 			if (contextI != null && contextI.actionContext != null
 					&& contextI.actionContext instanceof ManaCost) {
-				int[] manaCost = ((ManaCost) contextI.actionContext).manaCost;
+				int[] manaCost = ((ManaCost) contextI.actionContext).manaCostInts;
 				for (int j = IdCommonToken.PAYABLE_COLOR_NAMES.length; j-- > 0;) {
 					res += manaCost[j];
 				}

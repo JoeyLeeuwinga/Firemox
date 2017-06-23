@@ -530,12 +530,12 @@ public class PayMana extends UserAction implements ChosenAction, InitAction,
 		for (int color = manaCost.requiredMana.length; color-- > 0;) {
 			if (manaCost.requiredMana[color] > 0) {
 				// at least one required mana
-				return toHtmlString(manaCost.manaCost) + ", required "
+				return toHtmlString(manaCost.manaCostInts) + ", required "
 						+ toHtmlString(manaCost.requiredMana);
 			}
 		}
 		// no remaining mana
-		return toHtmlString(manaCost.manaCost);
+		return toHtmlString(manaCost.manaCostInts);
 	}
 
 	@Override

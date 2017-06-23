@@ -41,6 +41,24 @@ import net.sf.firemox.test.TestFactory;
 public class Among extends Expression {
 
 	/**
+	 * The zone identifant where the scan is restricted. If is equal to -1, there
+	 * would be no restriction zone.
+	 *
+	 * @see net.sf.firemox.token.IdZones
+	 */
+	private int restrictionZone;
+
+	/**
+	 * The test used to determine which card are considered in evaluation
+	 */
+	private Test test;
+
+	/**
+	 * The expression to evaluate for each valid card
+	 */
+	private Expression expr;
+
+	/**
 	 * Creates a new instance of Among <br>
 	 *
 	 * @param inputFile
@@ -87,22 +105,6 @@ public class Among extends Expression {
 		expr.extractTriggeredEvents(res, source, globalTest);
 	}
 
-	/**
-	 * The zone identifant where the scan is restricted. If is equal to -1, there
-	 * would be no restriction zone.
-	 * 
-	 * @see net.sf.firemox.token.IdZones
-	 */
-	private int restrictionZone;
 
-	/**
-	 * The test used to determine which card are considered in evaluation
-	 */
-	private Test test;
-
-	/**
-	 * The expression to evaluate for each valid card
-	 */
-	private Expression expr;
 
 }

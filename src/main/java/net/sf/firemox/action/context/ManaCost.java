@@ -38,17 +38,37 @@ import net.sf.firemox.tools.PairIntObject;
 public class ManaCost implements ActionContext {
 
 	/**
+	 * The initial mana cost.
+	 */
+	public final int[] manaCostInts;
+
+	/**
+	 * The required mana.
+	 */
+	public final int[] requiredMana;
+
+	/**
+	 * The mana paid.
+	 */
+	public final int[] manaPaid;
+
+	/**
+	 * The restriction used to paid the mana.
+	 */
+	private List<PairIntObject<Test>>[] restrictions = null;
+
+	/**
 	 * Create a new instance of this class.
 	 * 
 	 * @param manaCost
 	 *          initial mana cost.
 	 */
 	public ManaCost(int[] manaCost) {
-		this.manaCost = new int[IdCardColors.CARD_COLOR_NAMES.length
+		this.manaCostInts = new int[IdCardColors.CARD_COLOR_NAMES.length
 				+ IdCardColors.HYBRID_COLOR_NAMES.length
 				+ IdCardColors.PHYREXIAN_COLOR_NAMES.length];
-		this.requiredMana = new int[this.manaCost.length];
-		this.manaPaid = new int[this.manaCost.length];
+		this.requiredMana = new int[this.manaCostInts.length];
+		this.manaPaid = new int[this.manaCostInts.length];
 		addManaCost(manaCost);
 	}
 
@@ -67,30 +87,14 @@ public class ManaCost implements ActionContext {
 	}
 
 	/**
-	 * The initial mana cost.
-	 */
-	public final int[] manaCost;
-
-	/**
-	 * The required mana.
-	 */
-	public final int[] requiredMana;
-
-	/**
-	 * The mana paid.
-	 */
-	public final int[] manaPaid;
-
-	/**
-	 * The restriction used to paid the mana.
-	 */
-	public List<PairIntObject<Test>>[] restrictions = null;
-
-	/**
 	 * A choice node for the hybrid/phyrexian mana cost.
 	 */
 	private class ManaChoiceNode {
+		/**
+		 * Create a new instance of this class.
+		 */
 		public ManaChoiceNode() {
+			throw new UnsupportedOperationException();
 		}
 
 		public int index = -1;
@@ -181,13 +185,13 @@ public class ManaCost implements ActionContext {
 	public int[][] getPossibleRequiredManaList() {
 		int[] baseRequiredMana = new int[7];
 		for (int i = 0; i <= IdCommonToken.COLORED_MANA_LAST_INDEX; i++) {
-			baseRequiredMana[i] = manaCost[i];
+			baseRequiredMana[i] = manaCostInts[i];
 		}
 
 		int nbBranches = 1;
 		for (int i = IdCommonToken.HYBRID_MANA_FIRST_INDEX; i <= IdCommonToken.PHYREXIAN_MANA_LAST_INDEX; i++) {
-			if (manaCost[i] > 0) {
-				nbBranches = nbBranches * (int) Math.pow(2, manaCost[i]);
+			if (manaCostInts[i] > 0) {
+				nbBranches = nbBranches * (int) Math.pow(2, manaCostInts[i]);
 			}
 		}
 
@@ -197,7 +201,7 @@ public class ManaCost implements ActionContext {
 		}
 
 		ManaChoiceNode choices = new ManaChoiceNode();
-		createChoices(manaCost, choices, false, 0);
+		createChoices(manaCostInts, choices, false, 0);
 		fillChoices(choices, result, 0);
 
 		return result;
@@ -216,7 +220,7 @@ public class ManaCost implements ActionContext {
 	@SuppressWarnings("unchecked")
 	public void addRestriction(int color, Test test, int amount) {
 		if (restrictions == null) {
-			restrictions = new List[manaCost.length];
+			restrictions = new List[manaCostInts.length];
 			restrictions[color] = new ArrayList<PairIntObject<Test>>();
 		} else if (restrictions[color] == null) {
 			restrictions[color] = new ArrayList<PairIntObject<Test>>();
@@ -286,10 +290,10 @@ public class ManaCost implements ActionContext {
 	 *          the mana cost to add.
 	 */
 	private void addManaCost(int[] manaCost) {
-		for (int i = this.manaCost.length; i-- > 0;) {
-			this.manaCost[i] += manaCost[i];
+		for (int i = this.manaCostInts.length; i-- > 0;) {
+			this.manaCostInts[i] += manaCost[i];
 		}
-		StackManager.actionManager.updateRequiredMana(this.manaCost);
+		StackManager.actionManager.updateRequiredMana(this.manaCostInts);
 		System.arraycopy(manaCost, 0, requiredMana, 0, requiredMana.length);
 	}
 
@@ -304,18 +308,18 @@ public class ManaCost implements ActionContext {
 	 *         cost without making it negative for the given color.
 	 */
 	public int reduceManaCost(int color, int amount) {
-		if (manaCost[color] == 0) {
+		if (manaCostInts[color] == 0) {
 			// Useless to continue, no available mana.
 			return 0;
 		}
-		if (manaCost[color] >= amount) {
-			manaCost[color] -= amount;
+		if (manaCostInts[color] >= amount) {
+			manaCostInts[color] -= amount;
 			requiredMana[color] -= amount;
 			return 0;
 		}
 		// Some mana can not be removed, and the pool become 0.
-		final int removed = manaCost[color];
-		manaCost[color] = 0;
+		final int removed = manaCostInts[color];
+		manaCostInts[color] = 0;
 		requiredMana[color] = 0;
 		return amount - removed;
 	}
